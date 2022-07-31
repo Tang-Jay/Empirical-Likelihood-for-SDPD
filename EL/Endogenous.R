@@ -102,16 +102,16 @@ for(l in 1:4){
       Y0 = kronecker(rou^seq(0,T-1,1), eta_wave0)
       u1_s = c(am_pot*z,F%*%X*beta+F%*%Z*gama+Y0)
       
-      C1 = cbind(In,kronecker(t(c(rou^seq(m-1,0,-1))),Bni))
-      C2 = kronecker(diag(T),Bni)
-      C = matrix(rep(0,n2*n3),nrow=n2,ncol=n3)
-      C[1:n,1:n1] = C1
-      C[(n+1):n2,(n1+1):n3] = C2
+      D1 = cbind(In,kronecker(t(c(rou^seq(m-1,0,-1))),Bni))
+      D2 = kronecker(diag(T),Bni)
+      D = matrix(rep(0,n2*n3),nrow=n2,ncol=n3)
+      D[1:n,1:n1] = D1
+      D[(n+1):n2,(n1+1):n3] = D2
       
       P = matrix(rep(0,n3^2),nrow=n3,ncol=n3)
       P[1:n,1:n] = kronecker(sqrt(Phi_zeta),In)
       P[(n+1):n3,(n+1):n3] = diag(n*(m+T))
-      CP = C%*%P
+      DP = D%*%P
       
       Ome_s = matrix(rep(0,n2*n2),nrow=n2,ncol=n2)
       Ome_s[1:n,1:n] = Phi_zeta*In+bm*BtBni
@@ -127,19 +127,19 @@ for(l in 1:4){
       Plam_s = Ome_s_ni%*%Ome_s_lam%*%Ome_s_ni
       Pphi_s = Ome_s_ni%*%Ome_s_phi%*%Ome_s_ni
       
-      H1 = t(CP)%*%Ome_s_ni%*%CP
-      H2 = t(CP)%*%(F_s+t(F_s))%*%CP
-      H3 = t(CP)%*%Prou_s%*%CP
-      H4 = t(CP)%*%Plam_s%*%CP
-      H5 = t(CP)%*%Pphi_s%*%CP
+      H1 = t(DP)%*%Ome_s_ni%*%DP
+      H2 = t(DP)%*%(F_s+t(F_s))%*%DP
+      H3 = t(DP)%*%Prou_s%*%DP
+      H4 = t(DP)%*%Plam_s%*%DP
+      H5 = t(DP)%*%Pphi_s%*%DP
       
       h1 = diag(H1)
       h3 = diag(H3)
       h4 = diag(H4)
       h5 = diag(H5)
       
-      a1 =   t(X_s )%*%Ome_s_ni%*%CP
-      a2 = 2*t(u1_s)%*%Ome_s_ni%*%CP
+      a1 =   t(X_s )%*%Ome_s_ni%*%DP
+      a2 = 2*t(u1_s)%*%Ome_s_ni%*%DP
       
       #----------------Starting simulation-----------------#
       f1 = 0

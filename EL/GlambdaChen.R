@@ -18,7 +18,7 @@ lambdaChen<-function(u){
   R2=R1%*%t(R1)
   
   while(dif>tol && k<=300){
-    # 计算R1、R2
+    # R1、R2
     aa=1+t(M)%*%t(u)
     for(i in 1:df){
       R1[i]=sum(t(u[,i])/aa)

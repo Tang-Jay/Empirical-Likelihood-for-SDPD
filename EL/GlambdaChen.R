@@ -2,7 +2,7 @@
 #        The algorithm solving lambda in Chen(2008)        #  
 #===========================================================
 # For more details, please refer to:
-# Chen, J., Variyath, A. M., and Abraham, B. 2008.
+# Chen et al., 2008.
 # Adjusted empirical likelihood and its properties.
 
 lambdaChen<-function(u){

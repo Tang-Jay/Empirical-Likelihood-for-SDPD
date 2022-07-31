@@ -31,7 +31,7 @@ Rou <- function(T){
 }
 
 #-------------------setting parameters---------------------#
-nsim = 100              # nsim = 500 in article
+nsim = 200              # nsim = 500 in article
 size = c(7,10,13,16,20) 
 m = 6                   # Pre-m period
 beta = 1; p = 1
@@ -170,6 +170,6 @@ for(l in 1:4){
     }
     cat('\n')
   }
-  Sys.sleep(10)
+  Sys.sleep(2)
 }
 
